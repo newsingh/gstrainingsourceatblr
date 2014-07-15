@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <input type="button" value="Show" id="btnShow" />
+    <div id="result-table">
+
+    </div>
+    <script src="ViewBuilder.js"></script>
+    <script src="Dataloader.js"></script>
+    <script type="text/javascript">
+        var btnShow = document.getElementById("btnShow");
+        btnShow.addEventListener("click", function () {
+            var dataLoader = new DataLoader("Customers.json");
+
+            dataLoader.load(function (result) {
+                var resultTableElement = document.getElementById("result-table");
+
+                resultTableElement.innerHTML = result;
+            });
+        });
+    </script>
+</body>
+</html>
